@@ -1,15 +1,10 @@
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, TextInput, KeyboardAvoidingView, 
-  View, Image, Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TextInput, KeyboardAvoidingView, View, Image } from 'react-native';
 import { useFonts } from 'expo-font';
-import { useState } from 'react';
 
 export default function App() {
 
-  const [input, setInput] = useState('');
-  const [input2, setInput2] = useState('');
-  const [escondeSenha, setEscondeSenha] = useState(true);  
-  
   const [loaded] = useFonts({
     Quicksand: require('./assets/fonts/Quicksand_Bold.otf'),
     Inter: require('./assets/fonts/Inter-Regular.ttf')
@@ -17,59 +12,39 @@ export default function App() {
   if (!loaded) {
     return null;
   }
-
+  
   return (
     <KeyboardAvoidingView>
       <View style={styles.barra}>
-        <Image 
-          style={styles.seta}
-          source={require('./assets/logos/SetaEsquerda.png')} 
-        /> 
         <Text style={styles.entrar}>Entrar</Text>
       </View>
       <View>
-        <TextInput 
-          style={styles.email}
-          placeholder='Email'
-          placeholderTextColor= '#A4A2AA'
-          value= {input}
-          onChangeText= {(texto_email) => setInput(texto_email)}>                            
+        <TextInput style={styles.email}>
+          <Text style={styles.corcaixa}>Email</Text>
         </TextInput>
       </View>
       <View>
-        <TextInput 
-          style={styles.senha}
-          placeholder='Senha'
-          placeholderTextColor= '#A4A2AA'
-          value= {input2}
-          onChangeText= {(texto_senha) => setInput2(texto_senha)}
-          secureTextEntry= {escondeSenha}>           
+        <TextInput style={styles.senha}>
+          <Text style={styles.corcaixa}>Senha</Text>
         </TextInput>
       </View>
-      <TouchableOpacity 
-        onPress={() => Alert.alert('Entrar com Facebook','Facebocó')}
-        style={styles.botaoFace}>
+      <View style={styles.botaoFace}>
         <Text style={styles.cortextologin}>Entrar com Facebook</Text>  
-      </TouchableOpacity> 
+      </View> 
       <Image 
         style={styles.logo1}
         source={require('./assets/logos/face.png')} 
       /> 
-      <TouchableOpacity
-        onPress={() => Alert.alert('Entrar com Google','Google')} 
-        style={styles.botaoGoogle}>
+      <View style={styles.botaoGoogle}>
         <Text style={styles.cortextologin}>Entrar com Google</Text>               
-      </TouchableOpacity>
+      </View>
       <Image 
         style={styles.logo2}
         source={require('./assets/logos/google.png')} 
         /> 
-      <TouchableOpacity        
-        onPress={() => Alert.alert('Entrar','Entrar no APP')}
-        style={styles.botaologin}>
-          <Text style={styles.cortextologin2}>Entrar</Text>
-      </TouchableOpacity>           
-      
+      <View style={styles.botaologin}>
+        <Text style={styles.cortextologin2}>Entrar</Text>
+      </View>
     </KeyboardAvoidingView>      
   );
 }
@@ -79,14 +54,13 @@ const styles = StyleSheet.create({
     flex: -1,
     height: 70,
     backgroundColor: '#07055C',
+    alignItems: 'center',
     justifyContent: 'center',    
   },
   entrar: {
     fontSize : 20,
     color: '#FFFF',
     fontFamily: 'Quicksand',
-    top: -15,
-    left: 148,
   },
   email: {
     width: 328,
@@ -97,8 +71,6 @@ const styles = StyleSheet.create({
     borderRadius: 9.5,
     borderWidth: 1, 
     justifyContent: 'center',
-    fontSize: 18,  
-    fontFamily: 'Inter', 
   },
   senha: {
     width: 328,
@@ -109,13 +81,15 @@ const styles = StyleSheet.create({
     borderRadius: 9.5,
     borderWidth: 1, 
     justifyContent: 'center',
+  },
+  corcaixa: {
+    color: '#A4A2AA',
     fontSize: 18,  
-    fontFamily: 'Inter', 
+    fontFamily: 'Inter',  
   },
   botaoFace: {
     borderWidth: 1,
     borderColor: '#A4A2AA',
-    borderRadius: 6,
     width: 328,
     height: 51,
     left: 17,
@@ -125,11 +99,10 @@ const styles = StyleSheet.create({
   botaoGoogle: {
     borderWidth: 1,
     borderColor: '#A4A2AA',
-    borderRadius: 6,
     width: 328,
     height: 51,
     left: 17,
-    top: 200,
+    top: 220,
     justifyContent: 'center',
   },
   cortextologin: {
@@ -142,7 +115,7 @@ const styles = StyleSheet.create({
     width: 320,
     height: 50,
     left: 17,
-    top: 205,
+    top: 240,
     borderRadius: 25,
     backgroundColor: '#07055C',
     justifyContent: 'center',
@@ -164,12 +137,8 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     left: 50,
-    top: 165,
+    top: 185,
     justifyContent: 'center',
-  },
-  seta: {
-    top: 10,
-    left: 20,
   },
     
 });
