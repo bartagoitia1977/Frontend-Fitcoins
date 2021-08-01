@@ -1,15 +1,21 @@
+/* TELA DE LOGIN CFA_Login2.jsx do FitCoins */
+
 import React from 'react';
 import { StyleSheet, Text, TextInput, KeyboardAvoidingView, 
-  View, Image, Alert, TouchableOpacity } from 'react-native';
+  View, Image, Alert, TouchableOpacity} from 'react-native';
+
+ /* Fontes e estados para caixa de digitação */ 
 import { useFonts } from 'expo-font';
 import { useState } from 'react';
 
 export default function App() {
 
+  /* Estados para ciaxa de digitação */
   const [input, setInput] = useState('');
   const [input2, setInput2] = useState('');
   const [escondeSenha, setEscondeSenha] = useState(true);  
   
+  /* Ativação das fontes para estilos */
   const [loaded] = useFonts({
     Quicksand: require('./assets/fonts/Quicksand_Bold.otf'),
     Inter: require('./assets/fonts/Inter-Regular.ttf')
@@ -19,6 +25,8 @@ export default function App() {
   }
 
   return (
+
+    /* View principal para prevenir subida indesejada do teclado (iOS) */
     <KeyboardAvoidingView>
       <View style={styles.barra}>
         <Image 
@@ -49,35 +57,35 @@ export default function App() {
       <TouchableOpacity 
         onPress={() => Alert.alert('Entrar com Facebook','Facebocó')}
         style={styles.botaoFace}>
-        <Text style={styles.cortextologin}>Entrar com Facebook</Text>  
-      </TouchableOpacity> 
+        <Text style={styles.cortextologin}>Entrar com Facebook</Text>        
+      </TouchableOpacity>            
       <Image 
         style={styles.logo1}
         source={require('./assets/logos/face.png')} 
-      /> 
+      />       
       <TouchableOpacity
-        onPress={() => Alert.alert('Entrar com Google','Google')} 
+        onPress={() => Alert.alert('Entrar com Google','Google sabe de tudo!')}
         style={styles.botaoGoogle}>
         <Text style={styles.cortextologin}>Entrar com Google</Text>               
       </TouchableOpacity>
       <Image 
         style={styles.logo2}
         source={require('./assets/logos/google.png')} 
-        /> 
-      <TouchableOpacity        
-        onPress={() => Alert.alert('Entrar','Entrar no APP')}
+      /> 
+      <TouchableOpacity 
+        onPress={() => Alert.alert('Entrar','Você terá longa vida e saúde!')}      
         style={styles.botaologin}>
-          <Text style={styles.cortextologin2}>Entrar</Text>
-      </TouchableOpacity>           
+        <Text style={styles.cortextologin2}>Entrar</Text>
+      </TouchableOpacity>  
+              
       
     </KeyboardAvoidingView>      
   );
 }
-
+/* Estilos */
 const styles = StyleSheet.create({
   barra: {
-    flex: -1,
-    height: 70,
+    height: '10%',
     backgroundColor: '#07055C',
     justifyContent: 'center',    
   },
@@ -85,14 +93,14 @@ const styles = StyleSheet.create({
     fontSize : 20,
     color: '#FFFF',
     fontFamily: 'Quicksand',
-    top: -15,
-    left: 148,
+    top: '-20%',
+    left: '41%',
   },
   email: {
-    width: 328,
-    height: 49,
-    top: 30,
-    left: 17,
+    width: '92%',
+    height: '30%',
+    top: '10%',
+    left: '4%',
     borderColor: '#A4A2AA',
     borderRadius: 9.5,
     borderWidth: 1, 
@@ -101,10 +109,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter', 
   },
   senha: {
-    width: 328,
-    height: 49,
-    top: 50,
-    left: 17,
+    width: '92%',
+    height: '30%',
+    top: '-50%',
+    left: '4%',
     borderColor: '#A4A2AA',
     borderRadius: 9.5,
     borderWidth: 1, 
@@ -116,20 +124,20 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#A4A2AA',
     borderRadius: 6,
-    width: 328,
-    height: 51,
-    left: 17,
-    top: 200,
+    width: '92%',
+    height: '9%',
+    left: '4%',
+    top: '-12%',
     justifyContent: 'center',
   },
   botaoGoogle: {
     borderWidth: 1,
     borderColor: '#A4A2AA',
     borderRadius: 6,
-    width: 328,
-    height: 51,
-    left: 17,
-    top: 200,
+    width: '92%',
+    height: '9%',
+    left: '4%',
+    top: '-12%',
     justifyContent: 'center',
   },
   cortextologin: {
@@ -139,10 +147,10 @@ const styles = StyleSheet.create({
     left: 100,
   },
   botaologin: {
-    width: 320,
-    height: 50,
-    left: 17,
-    top: 205,
+    width: '88%',
+    height: '10%',
+    left: '6%',
+    top: '-12%',
     borderRadius: 25,
     backgroundColor: '#07055C',
     justifyContent: 'center',
@@ -156,20 +164,20 @@ const styles = StyleSheet.create({
   logo1: {
     width: 20,
     height: 20,
-    left: 50,
-    top: 165,
+    left: '14%',
+    top: '-18%',
     justifyContent: 'center',
   },
   logo2: {
     width: 20,
     height: 20,
-    left: 50,
-    top: 165,
+    left: '14%',
+    top: '-18%',
     justifyContent: 'center',
   },
   seta: {
-    top: 10,
-    left: 20,
+    top: '15%',
+    left: '6%',
   },
     
 });
