@@ -29,10 +29,13 @@ export default function App() {
     /* View principal para prevenir subida indesejada do teclado (iOS) */
     <KeyboardAvoidingView>
       <View style={styles.barra}>
-        <Image 
+        <TouchableOpacity
           style={styles.seta}
-          source={require('./assets/logos/SetaEsquerda.png')} 
-        /> 
+          onPress={() => Alert.alert('Seta Esquerda','Sai dessa tela')}>
+          <Image          
+            source={require('./assets/logos/SetaEsquerda.png')} 
+          />
+        </TouchableOpacity> 
         <Text style={styles.entrar}>Entrar</Text>
       </View>
       <View>
