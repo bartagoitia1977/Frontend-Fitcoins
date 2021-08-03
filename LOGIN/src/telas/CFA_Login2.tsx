@@ -58,23 +58,20 @@ export default function App() {
         </TextInput>
       </View>
       <TouchableOpacity 
-        onPress={() => Alert.alert('Entrar com Facebook','Facebocó')}
-        style={styles.botaoFace}>
-        <Text style={styles.cortextologin}>Entrar com Facebook</Text>        
+        onPress={() => Alert.alert('Entrar com Google','Google sabe de tudo!')}
+        style={styles.botaoGoogle}>
+        <Text style={styles.cortextologin}>Entrar com Google</Text>        
       </TouchableOpacity>            
       <Image 
         style={styles.logo1}
-        source={require('./assets/logos/face.png')} 
+        source={require('./assets/logos/google.png')} 
       />       
       <TouchableOpacity
-        onPress={() => Alert.alert('Entrar com Google','Google sabe de tudo!')}
-        style={styles.botaoGoogle}>
-        <Text style={styles.cortextologin}>Entrar com Google</Text>               
+        onPress={() => Alert.alert('Não sou cadastrado','Quero ser FitCoin!')}
+        style={styles.botaoNaoCadastrado}>
+        <Text style={styles.cortextologin}>Não sou cadastrado</Text>               
       </TouchableOpacity>
-      <Image 
-        style={styles.logo2}
-        source={require('./assets/logos/google.png')} 
-      /> 
+      
       <TouchableOpacity 
         onPress={() => Alert.alert('Entrar','Você terá longa vida e saúde!')}      
         style={styles.botaologin}>
@@ -123,8 +120,9 @@ const styles = StyleSheet.create({
     fontSize: 18,  
     fontFamily: 'Inter', 
   },
-  botaoFace: {
+  botaoNaoCadastrado: {
     borderWidth: 1,
+    backgroundColor: '#FFB6C1',
     borderColor: '#A4A2AA',
     borderRadius: 6,
     width: '92%',
@@ -147,13 +145,13 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontSize: 16,  
     fontFamily: 'Inter',
-    left: 100,
+    left: '27%',
   },
   botaologin: {
     width: '88%',
     height: '10%',
     left: '6%',
-    top: '-12%',
+    top: '-8%',
     borderRadius: 25,
     backgroundColor: '#07055C',
     justifyContent: 'center',
